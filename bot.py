@@ -82,3 +82,31 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+import telebot
+import os
+from flask import Flask
+from threading import Thread
+
+TOKEN = os.getenv("8266316926:AAG-BhL6KKVb1UOY3yDomOHRK8qIwwIF30M")
+bot = telebot.TeleBot(TOKEN)
+
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "alive"
+
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
+
+@bot.message_handler(commands=['start'])
+def start(msg):
+    bot.send_message(msg.chat.id, "Бот работает 🚀")
+
+keep_alive()
+bot.infinity_polling()
