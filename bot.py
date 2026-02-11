@@ -23,7 +23,7 @@ def main_menu():
             InlineKeyboardButton(
                 text="🚀 ОТКРЫТЬ ПАНЕЛЬ REDTOR",
                 web_app=WebAppInfo(
-                    url="https://redtor.vercel.app"  # ← ссылка на твой index.html
+                    url="https://r-edtor-code.vercel.app"  # ← ссылка на твой index.html
                 )
             )
         ],
@@ -110,3 +110,4 @@ def start(msg):
 
 keep_alive()
 bot.infinity_polling()
+
